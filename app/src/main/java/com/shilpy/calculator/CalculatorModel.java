@@ -13,4 +13,7 @@ public class CalculatorModel {
     private int substract(int a,int b){
         return a-b;
     }
+    private int addition(int a,int b){
+        return a+b;
+    }
 }
