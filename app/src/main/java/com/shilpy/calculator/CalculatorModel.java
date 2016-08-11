@@ -10,4 +10,7 @@ public class CalculatorModel {
     public CalculatorModel(Context context) {
         this.context=context;
     }
+    private int substract(int a,int b){
+        return a-b;
+    }
 }
