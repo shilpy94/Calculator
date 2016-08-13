@@ -8,17 +8,19 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
- EditText et;
+    EditText et;
    Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,plus,minus,mul,div,equal,clear;
     String op[]=new String[2];
     String str1=null;
     int total=0;
+    CalculatorModel cm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initialize();
+        cm=new CalculatorModel();
     }
 
     private void initialize() {
@@ -162,7 +164,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           else{
               et.setText(total + op[0] + str1);
           }break;
-
+/*
+code for operating calculation
+ */
       case R.id.plus : if(op[0]==null) {
           op[0] = "+";
           et.setText(str1 + op[0]);
@@ -172,7 +176,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           else {
           op[1]=op[0];
           op[0]="+";
-          calculate(op[1], str1);
+         total=cm.calculate(op[1], str1,total);
+          str1=null;
           et.setText(total + op[0]);
       }
   break;
@@ -187,8 +192,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           else {
               op[1]=op[0];
               op[0]="-";
-              calculate(op[1], str1);
+            total= cm.calculate(op[1], str1,total);
               et.setText(total + op[0]);
+              str1=null;
           }
           break;
       case R.id.mul:  if(op[0]==null) {
@@ -200,8 +206,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       else {
           op[1]=op[0];
           op[0]="*";
-          calculate(op[1], str1);
+         total= cm.calculate(op[1], str1, total);
           et.setText(total + op[0]);
+          str1=null;
       }
           break;
       case R.id.div: if(op[0]==null) {
@@ -213,41 +220,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       else {
           op[1]=op[0];
           op[0]="/";
-          calculate(op[1], str1);
+          total=cm.calculate(op[1], str1, total);
           et.setText(total + op[0]);
+          str1=null;
       }
           break;
       case R.id.equal:
+          if(op[0]==null){
+              Toast.makeText(this,"please enter operator and number properly",Toast.LENGTH_LONG).show();
+              break;
+          }
           op[1]=op[0];
           op[0]="=";
-          calculate(op[1], str1);
+          total=cm.calculate(op[1], str1, total);
           et.setText(op[0] + total);
           op[0]=null;
           str1=null;
+          total=0;
           break;
       case R.id.clear: op[0]=null;
           str1=null;
+          total=0;
           et.setText("0");
   }
 
     }
 
-    private void calculate(String opr, String str1) {
-        if(opr=="+"){
-            total+=Integer.parseInt(str1);
-            this.str1=null;
-        }
-        else if(opr=="-"){
-            total-=Integer.parseInt(str1);
-            this.str1=null;
-        }
-        else if(opr=="*"){
-            total*=Integer.parseInt(str1);
-            this.str1=null;
-        }
-        else if(opr=="/"){
-            total/=Integer.parseInt(str1);
-            this.str1=null;
-        }
-    }
 }
