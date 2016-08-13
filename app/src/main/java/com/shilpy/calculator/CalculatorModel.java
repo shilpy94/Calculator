@@ -6,14 +6,32 @@ import android.content.Context;
  * Created by Shilpy on 8/11/2016.
  */
 public class CalculatorModel {
-    private Context context;
-    public CalculatorModel(Context context) {
-        this.context=context;
+
+
+
+    MainActivity ma=MainActivity.getInstance1();
+
+    public void calculate(String opr, String str1) {
+        if(opr=="+"){
+            ma.total+=Integer.parseInt(str1);
+            ma.str1=null;
+        }
+        else if(opr=="-"){
+            ma.total-=Integer.parseInt(str1);
+            ma.str1=null;
+        }
+        else if(opr=="*"){
+            ma.total*=Integer.parseInt(str1);
+            ma.str1=null;
+        }
+        else if(opr=="/"){
+            ma.total/=Integer.parseInt(str1);
+            ma.str1=null;
+        }
     }
-    private int substract(int a,int b){
-        return a-b;
-    }
-    private int addition(int a,int b){
-        return a+b;
+
+    private static CalculatorModel cm=new CalculatorModel();
+    public static CalculatorModel getInstance2(){
+        return cm;
     }
 }
