@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    EditText et;
+    EditText text;
    Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,plus,minus,mul,div,equal,clear;
     String op[]=new String[2];
     String str1=null;
@@ -24,20 +24,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initialize() {
-        et=(EditText) findViewById(R.id.et);
-        str1=et.getText().toString();
-        b0=(Button) findViewById(R.id.b0); b1=(Button) findViewById(R.id.b1); b2=(Button) findViewById(R.id.b2);
-        b3=(Button) findViewById(R.id.b3); b4=(Button) findViewById(R.id.b4); b5=(Button) findViewById(R.id.b5);
-        b6=(Button) findViewById(R.id.b6); b7=(Button) findViewById(R.id.b7); b8=(Button) findViewById(R.id.b8);
-        b9=(Button) findViewById(R.id.b9); plus=(Button) findViewById(R.id.plus); minus=(Button) findViewById(R.id.minus);
-        mul=(Button) findViewById(R.id.mul); div=(Button) findViewById(R.id.div); equal=(Button) findViewById(R.id.equal);
+        text=(EditText) findViewById(R.id.et);
+        str1=text.getText().toString();
+        b0=(Button) findViewById(R.id.b0);
+        b1=(Button) findViewById(R.id.b1);
+        b2=(Button) findViewById(R.id.b2);
+        b3=(Button) findViewById(R.id.b3);
+        b4=(Button) findViewById(R.id.b4);
+        b5=(Button) findViewById(R.id.b5);
+        b6=(Button) findViewById(R.id.b6);
+        b7=(Button) findViewById(R.id.b7);
+        b8=(Button) findViewById(R.id.b8);
+        b9=(Button) findViewById(R.id.b9);
+        plus=(Button) findViewById(R.id.plus);
+        minus=(Button) findViewById(R.id.minus);
+        mul=(Button) findViewById(R.id.mul);
+        div=(Button) findViewById(R.id.div);
+        equal=(Button) findViewById(R.id.equal);
         clear=(Button) findViewById(R.id.clear);
 
-       b0.setOnClickListener(this); b1.setOnClickListener(this); b2.setOnClickListener(this);
-        b3.setOnClickListener(this); b4.setOnClickListener(this); b5.setOnClickListener(this);
-        b6.setOnClickListener(this); b7.setOnClickListener(this); b8.setOnClickListener(this);
-        b9.setOnClickListener(this); plus.setOnClickListener(this); minus.setOnClickListener(this);
-        mul.setOnClickListener(this); div.setOnClickListener(this); equal.setOnClickListener(this);
+        b0.setOnClickListener(this);
+        b1.setOnClickListener(this);
+        b2.setOnClickListener(this);
+        b3.setOnClickListener(this);
+        b4.setOnClickListener(this);
+        b5.setOnClickListener(this);
+        b6.setOnClickListener(this);
+        b7.setOnClickListener(this);
+        b8.setOnClickListener(this);
+        b9.setOnClickListener(this);
+        plus.setOnClickListener(this);
+        minus.setOnClickListener(this);
+        mul.setOnClickListener(this);
+        div.setOnClickListener(this);
+        equal.setOnClickListener(this);
         clear.setOnClickListener(this);
     }
 
@@ -51,10 +71,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "0";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
       }
           else{
-          et.setText(total + op[0] + str1);
+          text.setText(total + op[0] + str1);
       }break;
       case  R.id.b1 :  if(str1==null){
           str1="1";
@@ -63,10 +83,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "1";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
           }
           else{
-              et.setText(total + op[0] + str1);
+              text.setText(total + op[0] + str1);
           }break;
       case  R.id.b2 : if(str1==null){
           str1="2";
@@ -75,10 +95,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "2";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
           }
           else{
-              et.setText(total + op[0] + str1);
+              text.setText(total + op[0] + str1);
           }break;
       case  R.id.b3 : if(str1==null){
           str1="3";
@@ -87,10 +107,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "3";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
           }
           else{
-              et.setText(total + op[0] + str1);
+              text.setText(total + op[0] + str1);
           }break;
       case  R.id.b4: if(str1==null){
           str1="4";
@@ -99,10 +119,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "4";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
           }
           else{
-              et.setText(total + op[0] + str1);
+              text.setText(total + op[0] + str1);
           }break;
       case  R.id.b5 : if(str1==null){
           str1="5";
@@ -111,10 +131,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "5";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
           }
           else{
-              et.setText(total + op[0] + str1);
+              text.setText(total + op[0] + str1);
           }break;
       case  R.id.b6 : if(str1==null){
           str1="6";
@@ -123,10 +143,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "6";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
           }
           else{
-              et.setText(total + op[0] + str1);
+             text.setText(total + op[0] + str1);
           }break;
       case  R.id.b7 :  if(str1==null){
           str1="7";
@@ -135,10 +155,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "7";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
           }
           else{
-              et.setText(total + op[0] + str1);
+             text.setText(total + op[0] + str1);
           }break;
       case  R.id.b8 : if(str1==null){
           str1="8";
@@ -147,10 +167,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "8";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
           }
           else{
-              et.setText(total + op[0] + str1);
+              text.setText(total + op[0] + str1);
           }break;
       case  R.id.b9 : if(str1==null){
           str1="9";
@@ -159,17 +179,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           str1 = str1 + "9";
       }
           if(op[0]==null){
-              et.setText(str1);
+              text.setText(str1);
           }
           else{
-              et.setText(total + op[0] + str1);
+              text.setText(total + op[0] + str1);
           }break;
 /*
 code for operating calculation
  */
       case R.id.plus : if(op[0]==null) {
           op[0] = "+";
-          et.setText(str1 + op[0]);
+          text.setText(str1 + op[0]);
           total =Integer.parseInt( str1);
           str1 = null;
       }
@@ -178,14 +198,14 @@ code for operating calculation
           op[0]="+";
          total=cm.calculate(op[1], str1,total);
           str1=null;
-          et.setText(total + op[0]);
+          text.setText(total + op[0]);
       }
   break;
 
       case R.id.minus:
           if(op[0]==null) {
               op[0] = "-";
-              et.setText(str1 + op[0]);
+              text.setText(str1 + op[0]);
               total =Integer.parseInt( str1);
               str1 = null;
           }
@@ -193,13 +213,13 @@ code for operating calculation
               op[1]=op[0];
               op[0]="-";
             total= cm.calculate(op[1], str1,total);
-              et.setText(total + op[0]);
+              text.setText(total + op[0]);
               str1=null;
           }
           break;
       case R.id.mul:  if(op[0]==null) {
           op[0] = "*";
-          et.setText(str1 + op[0]);
+          text.setText(str1 + op[0]);
           total =Integer.parseInt( str1);
           str1 = null;
       }
@@ -207,13 +227,13 @@ code for operating calculation
           op[1]=op[0];
           op[0]="*";
          total= cm.calculate(op[1], str1, total);
-          et.setText(total + op[0]);
+          text.setText(total + op[0]);
           str1=null;
       }
           break;
       case R.id.div: if(op[0]==null) {
           op[0] = "/";
-          et.setText(str1 + op[0]);
+          text.setText(str1 + op[0]);
           total =Integer.parseInt( str1);
           str1 = null;
       }
@@ -221,7 +241,7 @@ code for operating calculation
           op[1]=op[0];
           op[0]="/";
           total=cm.calculate(op[1], str1, total);
-          et.setText(total + op[0]);
+         text.setText(total + op[0]);
           str1=null;
       }
           break;
@@ -233,7 +253,7 @@ code for operating calculation
           op[1]=op[0];
           op[0]="=";
           total=cm.calculate(op[1], str1, total);
-          et.setText(op[0] + total);
+          text.setText(op[0] + total);
           op[0]=null;
           str1=null;
           total=0;
@@ -241,7 +261,7 @@ code for operating calculation
       case R.id.clear: op[0]=null;
           str1=null;
           total=0;
-          et.setText("0");
+          text.setText("0");
   }
 
     }
